@@ -995,7 +995,8 @@ void ViewLogicalControl::handlerTrackSectionStatusUpdatedEvent(QString sectionid
         sectioncolorstatusMap.insert(sectionid, sectionstatus);
         //发出消息通知view进行重绘区段,并在重新绘制区段的同时，更新数据库中的View_TrackSection表
         //通知联锁控制逻辑，某个区段的状态发生变化
-        // emit drawSectionInthatTheStatusChanged(sectionid, sectionstatus);
+         emit changeTracksectionColorRequest(sectionid, sectionstatus);
+         emit notifySectionStatusChange(sectionid, sectionstatus);     //通知联锁控制器
     }
 
 
@@ -1290,8 +1291,7 @@ void ViewLogicalControl::controlTrackSectionColor(QString sectionid, QString sec
     //所有访问的地方都必须修改
     //在更新了界面中的颜色的时候，必须更新对应数据库中的颜色信息
     emit changeTracksectionColorRequest(sectionid, sectionstatus);
-    // auto mytracksection = this->m_trackView->m_lineMap.value(sectionid);
-   //  mytracksection->changeColor(sectionstatus);
+
     return;
 }
 

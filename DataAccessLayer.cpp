@@ -382,6 +382,56 @@ QMap<QString, QString> DataAccessLayer::getAllViewTrackSectionStatus() {
     return statusMap;
 }
 
+void DataAccessLayer::updateViewSignalB1(const QString& id, const QString& B1) {
+    if (!db.open()) {
+        qDebug() << "Error: " << db.lastError().text();
+        return;
+    }
+
+    QSqlQuery query(db);
+    db.transaction(); // 开始事务
+
+    query.prepare("UPDATE View_Signal SET B1 = :B1 WHERE id = :id");
+    query.bindValue(":B1", B1);
+    query.bindValue(":id", id);
+
+    if (!query.exec()) {
+        db.rollback(); // 事务回滚
+        db.close();
+        qDebug() << "Failed to update B1: " << query.lastError().text();
+    }
+    else {
+        db.commit(); // 提交事务
+        db.close();
+        qDebug() << "B1 updated for ID: " << id;
+    }
+}
+
+void DataAccessLayer::updateViewSignalB2(const QString& id, const QString& B2) {
+    if (!db.open()) {
+        qDebug() << "Error: " << db.lastError().text();
+        return;
+    }
+
+    QSqlQuery query(db);
+    db.transaction(); // 开始事务
+
+    query.prepare("UPDATE View_Signal SET B2 = :B2 WHERE id = :id");
+    query.bindValue(":B2", B2);
+    query.bindValue(":id", id);
+
+    if (!query.exec()) {
+        db.rollback(); // 事务回滚
+        db.close();
+        qDebug() << "Failed to update B2: " << query.lastError().text();
+    }
+    else {
+        db.commit(); // 提交事务
+        db.close();
+        qDebug() << "B2 updated for ID: " << id;
+    }
+}
+
 
 
 

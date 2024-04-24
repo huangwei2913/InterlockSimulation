@@ -128,7 +128,7 @@ MainWindow::MainWindow(QWidget* parent)
 	//QObject::connect(m_hardwareagent, &TracktologyBuilder::trackSectionUpdated, m_deviceManager, &PhyDeviceManager::handlertrackSectionUpdatedMessage);
 	//QObject::connect(m_hardwareagent, &TracktologyBuilder::turoutStatusUpdated, m_deviceManager, &PhyDeviceManager::handlerTurnoutStatusUpdatedMessage);
 	QObject::connect(m_hardwareagent, &TracktologyBuilder::trackSignalStatusUpdated, m_deviceManager, &PhyDeviceManager::handlerTrackSingaleUpdatedMessage);
-
+	//上面的这个也要修改
 
 	//当从下位机获得这些消息的时候，需要进行一些处理
 	QObject::connect(m_deviceManager, &PhyDeviceManager::turnoutStatusChanged, viewlogicalController, &ViewLogicalControl::handlerTurnoutStatusUpdatedEvent);
@@ -188,8 +188,10 @@ MainWindow::MainWindow(QWidget* parent)
 	QObject::connect(viewlogicalController, &ViewLogicalControl::drawTurnoutTextForTurnoutChange, trackview, &TrackView::handlerdrawTurnoutTextForTurnoutChange);
 	QObject::connect(viewlogicalController, &ViewLogicalControl::changeTracksectionColorRequest, trackview, &TrackView::handlerchangeTracksectionColorRequest);
 
+	//QObject::connect(viewlogicalController, &ViewLogicalControl::drawSectionInthatTheStatusChanged, trackview, &TrackView::handlerchangeTracksectionColorRequest);
 
-	
+	QObject::connect(viewlogicalController, &ViewLogicalControl::notifySectionStatusChange, m_interlockcontrol, &InterlockControl::handlerSectionStatusChange);
+
 
 
 

@@ -67,7 +67,8 @@ signals:
 	void drawPathForTurnoutChange(QString lineName, QPointF switchPos, QPointF endPos, QColor lineColor);  //在界面中转辙机失去表示，定操反操的时候都要调用这个在trackview上绘制
 	void drawTurnoutTextForTurnoutChange(QString turnoutid, QString textcolor);
 	void changeTracksectionColorRequest(QString sectionid, QString textcolor);
-
+	//void drawSectionInthatTheStatusChanged(QString sectionid, QString textcolor);
+	void notifySectionStatusChange(QString sectionid, QString textcolor);
 
 
 private:

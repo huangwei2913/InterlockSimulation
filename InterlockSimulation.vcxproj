@@ -195,7 +195,6 @@
     <ClCompile Include="Phy_Signal.cpp" />
     <ClCompile Include="Phy_TrackSection.cpp" />
     <ClCompile Include="Phy_turnout.cpp" />
-    <ClCompile Include="ProjectInitializer .cpp" />
     <ClCompile Include="ProjectInitializer.cpp" />
     <ClCompile Include="SceneEclipse.cpp" />
     <ClCompile Include="SceneText.cpp" />
@@ -234,7 +233,6 @@
     <ClInclude Include="Phy_Signal.h" />
     <ClInclude Include="Phy_TrackSection.h" />
     <ClInclude Include="Phy_turnout.h" />
-    <ClInclude Include="ProjectInitializer .h" />
     <ClInclude Include="ProjectInitializer.h" />
     <QtMoc Include="SceneEclipse.h" />
     <QtMoc Include="SceneText.h" />

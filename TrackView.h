@@ -40,7 +40,8 @@ public:
     void drawSignallables();
     void InitialSignalStatus();     //首次打开界面的时候，对界面中的信号机状态进行初始化
     void InitialSignalColor();      //首次打开界面的时候，需要对界面中的信号机颜色进行初始化
-    
+    //void InitalSignalBiaoshiDengColor(); //对信号机表示灯颜色进行初始化
+
 public:
     QMap<QString, QPair<QPointF, QPointF>> linePositions;  // 用来存储每个线段(也就是每个轨道)的开始和结束位置(在视图中的逻辑位置)，主要用于绘制其它东西，确定其它界面上的例如圆圈，按钮等位置
    // QMap<QString,  QPointF> signalPositionMap;  // 用来存储每个信号机位置，我们会使用这个位置来进行正方向判断,假定信号机都是贴近在轨道上的,逻辑相对位置

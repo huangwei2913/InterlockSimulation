@@ -886,11 +886,14 @@ public:
     QPair<QString, QString> getSignalLightColors(const QString& id);
     QMap<QString, QPointF> getAllTurnoutPositions(); 
     void updateSignalLightColors(const QString& id, const QString& B1, const QString& B2);
-
     bool insertViewTrackSectionData(const QString& id, const QString& status);
     bool updateViewTrackSectionStatus(const QString& id, const QString& status);
     QString getViewTrackSectionStatus(const QString& id);
     QMap<QString, QString> getAllViewTrackSectionStatus();
+
+    void updateViewSignalB1(const QString& id, const QString& B1); //更新信号机的表示灯1，就是视图这个表
+    void updateViewSignalB2(const QString& id, const QString& B2); //更新信号机的表示灯1，就是视图这个表
+
 
 
 };

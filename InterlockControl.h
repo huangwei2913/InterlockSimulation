@@ -33,6 +33,7 @@ public slots:
     void handlerSwitchReverseOperationRequest(QString swithcName);
     void handlerSegmentClearEvent(QString segmentName);
     void handlerSegmmentTakenEvent(QString segmentName);
+    void handlerSectionStatusChange(QString sectionID, QString status);
 
 public slots:
     void handleSwitchDirectOperationSuccess(QString switchId, QString commandId);
@@ -111,5 +112,7 @@ private:
 
 private:
     void handleOutstationSegment(QString segmentName, QString lineDirection);
+    QMap<QString, QString> section2StatusMap;
+
 
 };

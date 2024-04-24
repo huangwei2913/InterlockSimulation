@@ -113,9 +113,6 @@
     <ClCompile Include="PhyDeviceManager.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="ProjectInitializer .cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="serialdataport.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
@@ -235,9 +232,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dataport_global.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProjectInitializer .h">
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="SwitchDirectOperationEvent.h">

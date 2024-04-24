@@ -26,6 +26,24 @@ InterlockControl::InterlockControl(QObject* parent, TrackView* trackView) : QObj
     consolidateSwitchMap.insert("3", "1");
     consolidateSwitchMap.insert("5", "7");
     consolidateSwitchMap.insert("7", "5");
+    section2StatusMap.insert("3-11DG", "Free");
+    section2StatusMap.insert("X1LQG", "Free");
+    section2StatusMap.insert("1101G", "Free");
+    section2StatusMap.insert("1103G", "Free");
+    section2StatusMap.insert("1105G", "Free");
+    section2StatusMap.insert("1107G", "Free");
+    section2StatusMap.insert("1102G", "Free");
+    section2StatusMap.insert("1104G", "Free");
+    section2StatusMap.insert("1106G", "Free");
+    section2StatusMap.insert("1108G", "Free");
+    section2StatusMap.insert("2DG", "Free");
+    section2StatusMap.insert("IIG", "Free");
+    section2StatusMap.insert("1-9DG", "Free");
+    section2StatusMap.insert("S1LQG", "Free");
+    section2StatusMap.insert("4G", "Free");
+    section2StatusMap.insert("IG", "Free");
+    section2StatusMap.insert("3G", "Free");
+    section2StatusMap.insert("4DG", "Free");
     m_counter = 0;
     m_statusChecker = new CommandStatusChecker(this);
     connect(&da, &DataAccessLayer::comandInserted, m_statusChecker, &CommandStatusChecker::startCheckingRecords); //先插入命令
@@ -1596,6 +1614,17 @@ RouteDirection InterlockControl::getRouteDirectionForUplinePath(const QString& p
     {
         return RouteDirection::UpwardReverse;
     }
+}
+
+void InterlockControl::handlerSectionStatusChange(QString sectionid, QString status) {
+    //在这里进行密判断，一般来说，在InterlockControl初始化的时候，我们就把所有的区段设置为'Unknown', 'Free', 'Occupied这三种中的Free状态，要就是空闲状态
+    //也就说我们要依据进路来进行判断，是否要改变信号机的颜色，如果需要的话，则必须改变view中的灯光颜色
+    if (this->section2StatusMap.value(sectionid) == "Free") {
+        
+    
+    }
+
+
 }
 
 
